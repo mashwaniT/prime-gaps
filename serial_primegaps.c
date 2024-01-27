@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     mpz_init(difference);
     mpz_init(gap);
 
-    mpz_set_ui(max, 100);
+    mpz_set_ui(max, 1000000000);
     mpz_set_ui(previous, 1);
     mpz_nextprime(num, previous);
 
