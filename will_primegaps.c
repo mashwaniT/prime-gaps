@@ -8,7 +8,11 @@ int main(int argc, char** argv) {
     int world_rank, world_size;
 
     MPI_Init(&argc, &argv);
+
+    // Find out process rank
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
+    // Find out number of processes
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
     // range for each process
@@ -103,7 +107,7 @@ int main(int argc, char** argv) {
         // process all data
         int offset = 0;
         for (int i = 0; i < world_size; ++i) {
-            // get max gap. string in comms so convert back to mpz_t
+            // get max gap. string in comms so convert back to mpz_t 
             char* temp_max_gap_str = (char*)malloc(global_lengths[i * 3] * sizeof(char));
             strncpy(temp_max_gap_str, all_max_gap_str + offset, global_lengths[i * 3]);
             printf("Received max gap string from process %d: %s\n", i, temp_max_gap_str);
