@@ -66,6 +66,8 @@ int main(int argc, char** argv) {
 
     gmp_printf("Processor Rank: %d Largest Gap: %Zd Left Prime: %Zd Right Prime: %Zd\n", world_rank, max_gap, prime_before_gap, prime_after_gap);
     
+    // NOTE: Everything seems to be working properly up to here, 
+    // so I think after here is where we need to sort out the issue then it will be good to go
 
     mpz_set(last_prime_in_range, current_prime);
 
@@ -144,7 +146,7 @@ int main(int argc, char** argv) {
             mpz_clear(temp_max_gap);
         }
 
-        gmp_printf("Largest gap: %Zd, between primes %Zd and %Zd\n", max_gap, prime_before_gap, prime_after_gap);
+        // gmp_printf("Largest gap: %Zd, between primes %Zd and %Zd\n", max_gap, prime_before_gap, prime_after_gap);
         gmp_printf("Largest gap: %Zd, between primes %Zd and %Zd\n", global_max_gap, global_prime_before_gap, global_prime_after_gap);
         printf("Total processes: %d\n", world_size);
         printf("Total computation time: %e seconds\n", elapsed_time);
