@@ -18,7 +18,6 @@ int main(int argc, char **argv) {
     mpz_set_ui(previous, 1);
     mpz_nextprime(num, previous);
 
-    // generate the array of prime numbers
     while (mpz_cmp(num, max) < 0)
     {
 

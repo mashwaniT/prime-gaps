@@ -5,6 +5,7 @@
 #include <gmp.h>
 
 int main(int argc, char** argv) {
+
     int world_rank, world_size;
 
     MPI_Init(&argc, &argv);
@@ -17,7 +18,7 @@ int main(int argc, char** argv) {
 
     // range for each process
     mpz_t range_start, range_end, global_range;
-    mpz_init_set_ui(global_range, 1000000000); // 1 billion
+    mpz_init_set_ui(global_range, 1000000); // 1 billion
     unsigned long long int range_per_process = mpz_get_ui(global_range) / world_size;
 
     mpz_init_set_ui(range_start, world_rank * range_per_process + 1);
@@ -43,9 +44,12 @@ int main(int argc, char** argv) {
     MPI_Barrier(MPI_COMM_WORLD); // sync point
     double start_time = MPI_Wtime();
 
+    gmp_printf("Processor Rank: %d Range Start: %Zd Range End: %Zd\n", world_rank, range_start, range_end);
+
     mpz_nextprime(current_prime, range_start);
 
     while (mpz_cmp(current_prime, range_end) <= 0) {
+
         // get next prime and calculate gap
         mpz_nextprime(next_prime, current_prime);
         mpz_sub(gap, next_prime, current_prime);
@@ -59,6 +63,9 @@ int main(int argc, char** argv) {
 
         mpz_set(current_prime, next_prime);
     }
+
+    gmp_printf("Processor Rank: %d Largest Gap: %Zd Left Prime: %Zd Right Prime: %Zd\n", world_rank, max_gap, prime_before_gap, prime_after_gap);
+    
 
     mpz_set(last_prime_in_range, current_prime);
 
