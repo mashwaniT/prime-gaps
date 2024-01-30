@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 // #include <stdlib.h>
 // #include <mpi.h>
 #include <gmp.h>
@@ -13,6 +14,12 @@ int main(int argc, char **argv) {
     mpz_init(rprime);
     mpz_init(difference);
     mpz_init(gap);
+
+    clock_t start_time, end_time;
+    double cpu_time_used;
+
+    // Record the starting time
+    start_time = clock();
 
     mpz_set_ui(max, 1000000000);
     mpz_set_ui(previous, 1);
@@ -36,6 +43,15 @@ int main(int argc, char **argv) {
         mpz_nextprime(num, num);
 
     }
+
+    // Record the ending time
+    end_time = clock();
+
+    // Calculate the CPU time used
+    cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+
+    // Print the time taken
+    printf("Time taken: %f seconds\n", cpu_time_used);
 
     gmp_printf("lprime: %Zd rprime: %Zd gap: %Zd\n", lprime, rprime, gap);
     

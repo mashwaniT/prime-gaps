@@ -39,3 +39,9 @@ Total processes: 32
 Total computation time: 3.668536e+01 seconds
 Average computation time per process: 1.146418e+00 seconds
 Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+**********************************************************
+Run Time for serial version
+
+Time taken: 938.300000 seconds
+lprime: 436273009 rprime: 436273291 gap: 282

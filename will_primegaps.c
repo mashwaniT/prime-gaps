@@ -24,6 +24,19 @@ int main(int argc, char** argv) {
     // Initialize and set the global range to 1 billion
     mpz_init_set_ui(global_range, 1000000000); 
 
+    mpz_t current_prime, next_prime, gap, max_gap, last_prime_in_range;
+    mpz_t prime_before_gap, prime_after_gap;
+
+    // Initialize all variables
+    mpz_init(current_prime);
+    mpz_init(next_prime);
+    mpz_init(gap);
+    mpz_init(max_gap);
+    mpz_init(last_prime_in_range);
+    mpz_init(prime_before_gap);
+    mpz_init(prime_after_gap);
+    mpz_set_ui(max_gap, 0);
+
     // ****************************************************************
 
     // Calculate the range per process
@@ -38,19 +51,6 @@ int main(int argc, char** argv) {
         mpz_set(range_end, global_range);
     }
 
-    mpz_t current_prime, next_prime, gap, max_gap, last_prime_in_range;
-    mpz_t prime_before_gap, prime_after_gap;
-
-    // Initialize all variables
-    mpz_init(current_prime);
-    mpz_init(next_prime);
-    mpz_init(gap);
-    mpz_init(max_gap);
-    mpz_init(last_prime_in_range);
-    mpz_init(prime_before_gap);
-    mpz_init(prime_after_gap);
-    mpz_set_ui(max_gap, 0);
-
     // Synchronize all processes
     MPI_Barrier(MPI_COMM_WORLD); 
 
@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
     mpz_nextprime(current_prime, range_start);
 
     while (mpz_cmp(current_prime, range_end) <= 0) {
+        
         // Get next prime and calculate gap
         mpz_nextprime(next_prime, current_prime);
 
