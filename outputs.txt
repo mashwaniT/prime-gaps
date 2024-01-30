@@ -1,0 +1,41 @@
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 8
+Total computation time: 1.246293e+02 seconds
+Average computation time per process: 1.557866e+01 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 12
+Total computation time: 8.767491e+01 seconds
+Average computation time per process: 7.306242e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 16
+Total computation time: 6.932332e+01 seconds
+Average computation time per process: 4.332707e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 20
+Total computation time: 5.639275e+01 seconds
+Average computation time per process: 2.819637e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 24
+Total computation time: 4.744021e+01 seconds
+Average computation time per process: 1.976675e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 28
+Total computation time: 4.167845e+01 seconds
+Average computation time per process: 1.488516e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
+
+Largest gap: 282, between primes 436273009 and 436273291
+Total processes: 32
+Total computation time: 3.668536e+01 seconds
+Average computation time per process: 1.146418e+00 seconds
+Resolution of MPI_Wtime: 1.000000e-09 seconds
