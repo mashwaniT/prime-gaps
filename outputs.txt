@@ -45,3 +45,13 @@ Run Time for serial version
 
 Time taken: 938.300000 seconds
 lprime: 436273009 rprime: 436273291 gap: 282
+
+**********************************************************
+Run time for 1 trillion on wills computer
+
+william@Williams-Mac-mini a_01 % mpirun -np 10 ./cluster_code
+Largest gap: 540, between primes 738832927927 and 738832928467
+Total processes: 10
+Total computation time: 1.665170e+04 seconds
+Average computation time per process: 1.665170e+03 seconds
+Resolution of MPI_Wtime: 1.000000e-06 seconds
